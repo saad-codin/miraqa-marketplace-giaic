@@ -1,31 +1,35 @@
 import Link from "next/link";
-import Image from "next/image"
+import Image from "next/image";
+
 export default function Header() {
   return (
-    <div className="w-[1440px] h-[100px] border border-2px border-black">
-      <div className="w-[1286px] h-[41px] ml-[54px] my-[29px] border border-2px border-red-600 flex items-center">
-        {/* logo */}
-        <div className="w-[185px] h-[41px] ml-[54px] gap-[5px] border border-2px border-red-600 flex items-center">
-          <div className="border border-2px border-red-600"></div>
-          <div>
-            <h1>Furniro</h1>
-          </div>
+    <div className="w-[1440px] h-[100px] bg-white">
+      <div className="w-[1286px] h-full mx-auto flex items-center justify-between"> {/* Changed height to h-full */}
+        {/* Logo */}
+        <div className="flex items-center gap-2">
+          {/* Replace with your actual logo */}
+          <Image src="/logo.png" alt="Furniro Logo" height={32} width={50} />
+          <h1 className="text-2xl font-bold text-gray-800">Furniro</h1>
         </div>
 
-        <div className="border border-2px border-black w-[430px] h-[24px] ml-[405px]">
-          <div className="flex flex-wrap justify-between">
-            <h1>Home</h1>
+        {/* Navigation */}
+        <nav className="flex space-x-8">
+          <Link href="/" legacyBehavior>
+            <a className="text-gray-600 hover:text-gray-800">Home</a> 
+          </Link>
+          <Link href="/shop" legacyBehavior>
+            <a className="text-gray-600 hover:text-gray-800">Shop</a>
+          </Link>
+          <Link href="/blog" legacyBehavior>
+            <a className="text-gray-600 hover:text-gray-800">Blog</a>
+          </Link>
+          <Link href="/contact" legacyBehavior>
+            <a className="text-gray-600 hover:text-gray-800">Contact</a>
+          </Link>
+        </nav>
 
-            {/* Updated Shop Link */}
-            <Link href="/shop">
-              <h1>Shop</h1>
-            </Link>
-
-            <h1>Blog</h1>
-            <h1>Contact</h1>
-          </div>
-        </div>
-        <div className="flex flex-wrap justify-end gap-x-2 mx-5">
+        {/* Icons */}
+        <div className="flex items-center space-x-6">
           <Image src="/Vector.png" alt="Vector Icon" height={28} width={28} />
           <Image src="/Vector (1).png" alt="Vector Icon 1" height={28} width={28} />
           <Image src="/akar-icons_heart.png" alt="Heart Icon" height={28} width={28} />

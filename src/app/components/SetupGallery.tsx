@@ -5,7 +5,7 @@ export default function SetupGallery ( ){
 
     return ( 
 
-        <div className="w-[1799] h-[780] border border-2px border-black">
+        <div className="w-[1799] h-[780] mt-[100px]">
          <Image src="/Share (12).png" alt="gallery" width={1799} height={780}/>
         </div>
     )
