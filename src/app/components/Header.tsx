@@ -14,17 +14,17 @@ export default function Header() {
 
         
         <nav className="flex space-x-8">
-          <Link href="/" legacyBehavior>
-            <a className="text-gray-600 hover:text-gray-800">Home</a> 
+          <Link href="/" 
+             className="text-gray-600 hover:text-gray-800">Home 
           </Link>
-          <Link href="/shop" legacyBehavior>
-            <a className="text-gray-600 hover:text-gray-800">Shop</a>
+          <Link href="/shop" 
+            className="text-gray-600 hover:text-gray-800">Shop
           </Link>
-          <Link href="/blog" legacyBehavior>
-            <a className="text-gray-600 hover:text-gray-800">Blog</a>
+          <Link href="/blog" 
+             className="text-gray-600 hover:text-gray-800">Blog
           </Link>
-          <Link href="/contact" legacyBehavior>
-            <a className="text-gray-600 hover:text-gray-800">Contact</a>
+          <Link href="/contact"
+             className="text-gray-600 hover:text-gray-800">Contact
           </Link>
         </nav>
 

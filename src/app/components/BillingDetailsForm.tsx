@@ -9,7 +9,7 @@ export default function BillingDetailsForm() {
         >
           <h2 className="text-5xl font-semibold mt-10">Billing Details</h2>
   
-          {/* First Name and Last Name */}
+          
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label htmlFor="firstName" className="block text-sm font-medium text-gray-700">
@@ -35,7 +35,7 @@ export default function BillingDetailsForm() {
             </div>
           </div>
   
-          {/* Company Name */}
+        
           <div>
             <label htmlFor="companyName" className="block text-sm font-medium text-gray-700">
               Company Name (Optional)
@@ -48,7 +48,7 @@ export default function BillingDetailsForm() {
             />
           </div>
   
-          {/* Country/Region */}
+
           <div>
             <label htmlFor="country" className="block text-sm font-medium text-gray-700">
               Country / Region
@@ -63,8 +63,7 @@ export default function BillingDetailsForm() {
               <option value="USA">USA</option>
             </select>
           </div>
-  
-          {/* Street Address */}
+
           <div>
             <label htmlFor="streetAddress" className="block text-sm font-medium text-gray-700">
               Street Address
@@ -76,8 +75,7 @@ export default function BillingDetailsForm() {
               className="mt-1 w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
-  
-          {/* Town / City */}
+
           <div>
             <label htmlFor="city" className="block text-sm font-medium text-gray-700">
               Town / City
@@ -90,7 +88,7 @@ export default function BillingDetailsForm() {
             />
           </div>
   
-          {/* Province */}
+
           <div>
             <label htmlFor="province" className="block text-sm font-medium text-gray-700">
               Province
@@ -104,8 +102,7 @@ export default function BillingDetailsForm() {
               <option value="Central Province">Central Province</option>
             </select>
           </div>
-  
-          {/* ZIP Code */}
+
           <div>
             <label htmlFor="zipCode" className="block text-sm font-medium text-gray-700">
               ZIP Code
@@ -117,8 +114,7 @@ export default function BillingDetailsForm() {
               className="mt-1 w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
-  
-          {/* Phone */}
+
           <div>
             <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
               Phone
@@ -131,7 +127,7 @@ export default function BillingDetailsForm() {
             />
           </div>
   
-          {/* Email Address */}
+         
           <div>
             <label htmlFor="email" className="block text-sm font-medium text-gray-700">
               Email Address
@@ -144,7 +140,7 @@ export default function BillingDetailsForm() {
             />
           </div>
   
-          {/* Additional Information */}
+         
           <div>
             <label htmlFor="additionalInfo" className="block text-sm font-medium text-gray-700">
               Additional Information
@@ -157,7 +153,7 @@ export default function BillingDetailsForm() {
             ></textarea>
           </div>
   
-          {/* Submit Button */}
+        
           <div>
             <button
               type="submit"
