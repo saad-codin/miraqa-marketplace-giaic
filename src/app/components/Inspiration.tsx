@@ -19,7 +19,7 @@ const rooms: Room[] = [
 
 export default function Inspiration() {
   return (
-    <div className="w-full max-w-screen-xl mx-auto p-4 mt-[100px]"> 
+    <div className="w-full max-w-screen-xl mx-auto p-4 mt-[200px]"> 
       <div className="flex flex-col md:flex-row gap-8 "> 
         <div className="md:w-[422px] mt-[200px]"> 
           <h1 className="text-3xl font-bold mb-2">50+ Beautiful rooms inspiration</h1>

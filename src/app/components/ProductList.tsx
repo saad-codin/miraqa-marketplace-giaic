@@ -1,5 +1,5 @@
 import React from "react";
-
+import Link from "next/link";
 interface Product {
   imageUrl: string;
   name: string;
@@ -109,22 +109,25 @@ const ProductCard: React.FC<Product> = ({ imageUrl, name, description, price, or
 
 export default function ProductList() {
   return (
-    <div className="w-full max-w-screen-xl mx-auto p-4"> 
+    <div className="w-[1236px] h-[1084px] max-w-screen-xl ml-[102px] p-4"> 
       <div className="flex items-center justify-center w-full h-[48px]">
-        <h1 className="text-center text-4xl font-bold">Our Products</h1>
+        <h1 className="text-center text-4xl font-bold mt-20">Our Products</h1>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-[32px] gap-y-[83px] mt-[100px]">
         {products.map((product, index) => (
           <ProductCard key={index} {...product} />
-        ))}
+        ))} 
       </div>
-
-      <div className="text-center mt-8"> 
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-          Show More
-        </button>
+      <div className="flex items-center justify-center mt-8">
+        <Link href="/shop">
+          <button className="border border-[rgb(184,142,47)] text-[rgb(184,142,47)] font-bold py-2 px-4 rounded w-[245px] h-[48px]">
+            Show More
+          </button>
+        </Link>
+</div>
+    
       </div>
-    </div>
+    
   );
 }
