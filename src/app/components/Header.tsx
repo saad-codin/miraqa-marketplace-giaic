@@ -33,10 +33,10 @@ export default function Header() {
           <Image src="/Vector.png" alt="Vector Icon" height={28} width={28} />
           <Image src="/Vector (1).png" alt="Vector Icon 1" height={28} width={28} />
           <Image src="/akar-icons_heart.png" alt="Heart Icon" height={28} width={28} /> 
-          <Link href="/cart" legacyBehavior> 
-          <a href="/">
+          <Link href="/cart" > 
+          
           <Image src="/ant-design_shopping-cart-outlined.png" alt="Shopping Cart Icon" height={28} width={28} />
-          </a>
+        
           </Link>
         </div>
       </div>
