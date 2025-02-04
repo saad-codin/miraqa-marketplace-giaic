@@ -23,7 +23,7 @@ export default function Contact () {
   <div className="w-[1058px] h-[923px] mt-6 flex justify-between"> 
      <div className="w-[393px] h-[537px]  mt-[191px]">  
      <div className="max-w-sm mx-auto space-y-[100px] text-black mt-[40px] ">
-      {/* Address Section */}
+
       <div className="flex items-start space-x-4">
         <MapPin size={24} className="text-black mt-1" />
         <div>
@@ -33,8 +33,6 @@ export default function Contact () {
           </p>
         </div>
       </div>
-
-      {/* Phone Section */}
       <div className="flex items-start space-x-4">
         <Phone size={24} className="text-black mt-1" />
         <div>
@@ -44,7 +42,6 @@ export default function Contact () {
         </div>
       </div>
 
-      {/* Working Time Section */}
       <div className="flex items-start space-x-4">
         <Clock size={24} className="text-black mt-1" />
         <div>

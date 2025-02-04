@@ -4,7 +4,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Feature from "../components/Feature";
-import { Button } from "@/components/ui/button";
 import { Pagination, PaginationContent, PaginationItem, PaginationPrevious, PaginationNext, PaginationLink } from "@/components/ui/pagination";
 
 interface Product {
