@@ -1,6 +1,11 @@
-import React from "react";
-import Image from "next/image";
+"use client"
 
+
+import React, { useState } from "react";
+import Image from "next/image";
+import Feature from "../components/Feature";
+import { Button } from "@/components/ui/button";
+import { Pagination, PaginationContent, PaginationItem, PaginationPrevious, PaginationNext, PaginationLink } from "@/components/ui/pagination";
 
 interface Product {
   imageUrl: string;
@@ -47,8 +52,8 @@ const products: Product[] = [
   },
 ];
 
-
 const repeatedProducts = Array(4).fill(products).flat();
+const itemsPerPage = 8;
 
 const ProductCard: React.FC<Product> = ({
   imageUrl,
@@ -91,67 +96,63 @@ const ProductCard: React.FC<Product> = ({
 };
 
 export default function Shop() {
+  const [currentPage, setCurrentPage] = useState(1);
+  const totalPages = Math.ceil(repeatedProducts.length / itemsPerPage);
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+  };
+
+  const paginatedProducts = repeatedProducts.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
+
   return (
     <div className="w-full">
-      
       <div>
-        <Image
-          src="/Group 78 (4).png"
-          alt="Shop"
-          height={316}
-          width={1440}
-          className="w-full"
-        />
+        <Image src="/Group 78 (4).png" alt="Shop" height={316} width={1440} className="w-full" />
       </div>
-
-      
       <div>
-        <Image
-          src="/Group 63 (2).png"
-          alt="Filter"
-          height={100}
-          width={1440}
-          className="w-full"
-        />
+        <Image src="/Group 63 (2).png" alt="Filter" height={100} width={1440} className="w-full" />
       </div>
-
-      <div className="w-[1440px] h-[2051px] ">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-[32px] gap-y-[83px] mt-[50px] w-[1244px]  h-[2034px] ml-[99px] gap-40">
-          {repeatedProducts.map((product, index) => (
-             <ProductCard key={index} {...product} />
-          ))} 
+      <div className="w-[1440px] h-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 mt-[50px] w-[1244px] mx-auto">
+          {paginatedProducts.map((product, index) => (
+            <ProductCard key={index} {...product} />
+          ))}
         </div>
-      </div> 
-      <div className="mt-[40px]  flex items-center justify-center ">
-  <div className="w-[392px] h-[90px] flex gap-[30px]">
-    {/* Button 1 */}
-    <div className="flex items-center justify-center border bg-[rgb(184,142,47)]  h-[60px] w-[60px] rounded-[10px]">
-      <p className="text-white text-xl">1</p>
-    </div>
-    
-    {/* Button 2 */}
-    <div className="flex items-center justify-center border  bg-[#F9F1E7] h-[60px] w-[60px] rounded-[10px]">
-      <p className="text-gray-800 text-xl">2</p>
-    </div>
-    
-    {/* Button 3 */}
-    <div className="flex items-center justify-center border  bg-[#F9F1E7] h-[60px] w-[60px] rounded-[10px]">
-      <p className="text-gray-800 text-xl">3</p>
-    </div>
-    
-    {/* Button Next */}
-    <div className="flex items-center justify-center border  bg-[#F9F1E7] h-[60px] w-[60px] rounded-[10px]">
-      <p className="text-gray-800text-xl">Next</p>
-    </div> 
+      </div>
+      <div className="mt-[40px] flex items-center justify-center">
+        <Pagination>
+          <PaginationContent>
+          <PaginationItem>
+  <PaginationPrevious
+    onClick={() => handlePageChange(currentPage - 1)}
+    className={currentPage === 1 ? "pointer-events-none opacity-50" : ""}
+  />
+</PaginationItem>
 
+            {[...Array(totalPages)].map((_, index) => (
+              <PaginationItem key={index}>
+                <PaginationLink onClick={() => handlePageChange(index + 1)}>
+                  {index + 1}
+                </PaginationLink>
+              </PaginationItem>
+            ))}
+          <PaginationItem>
+  <PaginationNext
+    onClick={() => handlePageChange(currentPage + 1)}
+    className={currentPage === totalPages ? "pointer-events-none opacity-50" : ""}
+  />
+</PaginationItem>
 
-  </div>
-</div> 
-  <div className="mt-[60px]">
-    <Image src="/Frame 161.png" alt="frame" height={270} width={1440} ></Image>
-  </div>
-
-
+          </PaginationContent>
+        </Pagination>
+      </div>
+      <div className="mt-[60px]">
+        <Feature />
+      </div>
     </div>
   );
 }

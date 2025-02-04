@@ -1,4 +1,6 @@
 import Image from "next/image"
+import { MapPin , Phone , Clock} from 'lucide-react'; 
+import Feature from "../components/Feature";
 
 
 export default function Contact () { 
@@ -18,11 +20,40 @@ export default function Contact () {
     For More Information About Our Product & Services.
     Please Feel Free To Drop Us An Email. Our Staff Always Be There To Help You Out. Do Not Hesitate!
   </p>
-  <div className="w-[1058px] h-[923px] bordermt-6 flex justify-between"> 
-     <div className="w-[393px] h-[537px] border  mt-[191px]"> 
-      
-             <Image src="/Group 155.png" alt="location " height={537} width={393}></Image> 
-             
+  <div className="w-[1058px] h-[923px] mt-6 flex justify-between"> 
+     <div className="w-[393px] h-[537px]  mt-[191px]">  
+     <div className="max-w-sm mx-auto space-y-[100px] text-black mt-[40px] ">
+      {/* Address Section */}
+      <div className="flex items-start space-x-4">
+        <MapPin size={24} className="text-black mt-1" />
+        <div>
+          <h3 className="font-bold text-lg">Address</h3>
+          <p className="text-gray-600 text-[16px] leading-[24px]">
+            236 5th SE Avenue, New <br />York NY10000, United <br /> States
+          </p>
+        </div>
+      </div>
+
+      {/* Phone Section */}
+      <div className="flex items-start space-x-4">
+        <Phone size={24} className="text-black mt-1" />
+        <div>
+          <h3 className="font-bold text-lg ">Phone</h3>
+          <p className="text-gray-600 text-[16px] leading-[24px]">Mobile: +(84) 546-6789</p>
+          <p className="text-gray-600 text-[16px] leading-[24px]">Hotline: +(84) 456-6789</p>
+        </div>
+      </div>
+
+      {/* Working Time Section */}
+      <div className="flex items-start space-x-4">
+        <Clock size={24} className="text-black mt-1" />
+        <div>
+          <h3 className="font-bold text-lg">Working Time</h3>
+          <p className="text-gray-600 text-[16px] leading-[24px]">Monday–Friday: 9:00 – 22:00</p>
+          <p className="text-gray-600 text-[16px] leading-[24px]">Saturday–Sunday: 9:00 – 21:00</p>
+        </div>
+      </div>
+    </div>
          
 
 
@@ -30,7 +61,7 @@ export default function Contact () {
      </div> 
      <div className="w-[635px] h-[923px]  flex flex-col items-center "> 
 
-        <div className="w-[531px] h-[741px] border  mt-[119px] flex flex-col justify-between  ">  
+        <div className="w-[531px] h-[741px]   mt-[119px] flex flex-col justify-between  ">  
         <div className="flex flex-col space-y-[65px] p-1 flex-grow">
   <div>
     <label htmlFor="firstName" className="block text-base mb-4 font-medium text-gray-700">
@@ -98,8 +129,8 @@ export default function Contact () {
 </div>
  
  </div> 
- <div className="w-[1440px] h-[270px]">
-    <Image src="/Frame 161.png" alt="highquality" height={270} width={1440}></Image>
+ <div >
+    <Feature />
  </div>
 
 

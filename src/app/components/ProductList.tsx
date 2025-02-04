@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+
 interface Product {
   imageUrl: string;
   name: string;
@@ -76,13 +77,13 @@ const products: Product[] = [
 
 const ProductCard: React.FC<Product> = ({ imageUrl, name, description, price, originalPrice, discount, isNew }) => {
   return (
-    <div className="w-[285px] h-[446px] border border-gray-300 rounded-lg overflow-hidden relative">
+    <div className="w-full max-w-[285px] border border-gray-300 rounded-lg overflow-hidden relative">
       {isNew && (
         <div className="absolute top-2 left-2 bg-blue-500 text-white px-2 py-1 rounded-md text-xs">
           New
         </div>
       )}
-      <div className="w-[285px] h-[301px] relative">
+      <div className="w-full h-[301px] relative">
         <img src={imageUrl} alt={name} className="w-full h-full object-cover" />
         {discount && (
           <div className="absolute top-2 right-2 bg-pink-500 text-white px-2 py-1 rounded-md text-xs">
@@ -106,15 +107,14 @@ const ProductCard: React.FC<Product> = ({ imageUrl, name, description, price, or
   );
 };
 
-
 export default function ProductList() {
   return (
-    <div className="w-[1236px] h-[1084px] max-w-screen-xl ml-[102px] p-4"> 
+    <div className="w-full max-w-screen-xl mx-auto px-4 py-10"> 
       <div className="flex items-center justify-center w-full h-[48px]">
-        <h1 className="text-center text-4xl font-bold mt-20">Our Products</h1>
+        <h1 className="text-center text-4xl font-bold mt-10">Our Products</h1>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-[32px] gap-y-[83px] mt-[100px]">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-10">
         {products.map((product, index) => (
           <ProductCard key={index} {...product} />
         ))} 
@@ -125,9 +125,7 @@ export default function ProductList() {
             Show More
           </button>
         </Link>
-</div>
-    
       </div>
-    
+    </div>
   );
 }

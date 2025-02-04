@@ -1,10 +1,12 @@
 // pages/_document.js
-import Document, { Html, Head, Main, NextScript } from 'next/document';
+import Document, { Html, Head, Main, NextScript } from 'next/document'; 
+
 
 class MyDocument extends Document {
   render() {
     return (
-      <Html>
+      <Html> 
+        <Header />
         <Head>
           {/* Google Fonts - Poppins */}
           <link
@@ -16,6 +18,7 @@ class MyDocument extends Document {
           <Main />
           <NextScript />
         </body>
+        <Footer />
       </Html>
     );
   }

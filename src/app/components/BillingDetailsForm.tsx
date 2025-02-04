@@ -1,11 +1,8 @@
 export default function BillingDetailsForm() {
     return (
-      <div
-        className="flex items-center justify-center"
-        
-      >
+      <div className="flex items-center justify-center">
         <form
-          className="flex flex-col justify-between bg-white rounded-lg shadow-lg p-6 space-y-4 w-full h-full"
+          className="flex flex-col justify-between  p-6 space-y-4 w-full h-full"
         >
           <h2 className="text-5xl font-semibold mt-10">Billing Details</h2>
   

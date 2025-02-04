@@ -1,5 +1,6 @@
 import Image from "next/image"
-import Link from "next/link"
+import Link from "next/link" 
+import Feature from "../components/Feature"
 export default function Cart () { 
 
     return ( 
@@ -68,9 +69,8 @@ export default function Cart () {
 
 
                       </div> 
-              <div className="w-[1440px] h-[270px]">  
-                 <Image src="/Frame 161.png" alt="" height={270} width={1440}></Image>
-
+              <div >  
+                 <Feature />
               </div>
             
 
