@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import sanityClient from "@sanity/client";
 
 const sanity = sanityClient({
@@ -53,10 +54,13 @@ const ProductCard: React.FC<ProductCardProps> = ({ limit }) => {
         {products.map((product) => (
           <Link key={product._id} href={`/products`} passHref>
             <div className="border p-4 rounded-lg shadow-md hover:shadow-lg transition duration-300 cursor-pointer bg-white">
-              <img
+              <Image
                 src={product.imageUrl}
                 alt={product.title}
+                width={400}
+                height={400}
                 className="w-full h-48 object-cover rounded-md"
+                priority
               />
               <h3 className="text-lg font-semibold mt-2">{product.title}</h3>
               <p className="text-gray-600">${product.price.toLocaleString()}</p>

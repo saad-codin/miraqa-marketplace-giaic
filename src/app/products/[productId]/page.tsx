@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Minus, Plus, CheckCircle } from "lucide-react";
 import { useCartStore } from "@/store/cartStore";
 import { Toaster, useToast } from "@/components/ui/toaster";
+import Image from "next/image";
 
 const sanity = sanityClient({
   projectId: "pgn6ioec",
@@ -97,9 +98,11 @@ const ProductPage = () => {
   return (
     <div className="p-6 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
       <div className="flex justify-center">
-        <img
+        <Image
           src={product.imageUrl || "https://via.placeholder.com/400"}
           alt={product.title}
+          width={400}
+          height={400}
           className="rounded-lg shadow-md w-full max-w-md object-cover"
         />
       </div>
