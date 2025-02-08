@@ -23,6 +23,6 @@
     },
     "types": ["@types/node", "@types/react", "@clerk/nextjs"]  // Added @clerk/nextjs here
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/signin/page.tsx.bak", "src/app/signup/page.tsx.bak", "src/app/user/page.tsx.bak"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/signin/page.tsx.bak", "src/app/signup/page.tsx.bak", "src/app/user/page.tsx.bak", "src/middleware.ts.bak"],
   "exclude": ["node_modules"]
 }
