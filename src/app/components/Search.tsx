@@ -14,7 +14,7 @@ interface Product {
 }
 
 interface SearchProps {
-  products: Product[]; // Accept the list of products as a prop to search from
+  products: Product[];
 }
 
 const Search: React.FC<SearchProps> = ({ products }) => {
@@ -30,13 +30,12 @@ const Search: React.FC<SearchProps> = ({ products }) => {
       );
       setFilteredProducts(filtered);
     } else {
-      setFilteredProducts([]); // Clear results when search query is empty
+      setFilteredProducts([]);
     }
   }, [searchQuery, products]);
 
   return (
     <div className="relative w-full max-w-lg mx-auto">
-      {/* Search Input */}
       <input
         type="text"
         placeholder="Search by tags..."
@@ -46,7 +45,6 @@ const Search: React.FC<SearchProps> = ({ products }) => {
       />
       <SearchIcon className="absolute top-3 right-3 w-5 h-5 text-gray-600" />
 
-      {/* Display filtered products */}
       {searchQuery && filteredProducts.length > 0 && (
         <div className="mt-4">
           <h3 className="font-bold text-xl">Search Results</h3>
@@ -66,7 +64,6 @@ const Search: React.FC<SearchProps> = ({ products }) => {
                   {product.description.slice(0, 100)}...
                 </p>
                 <p className="mt-2 font-bold">${product.price}</p>
-                {/* Display tags */}
                 <div className="mt-3 flex flex-wrap gap-2">
                   {product.tags.map((tag, index) => (
                     <span
@@ -83,7 +80,6 @@ const Search: React.FC<SearchProps> = ({ products }) => {
         </div>
       )}
 
-      {/* If no results found */}
       {searchQuery && filteredProducts.length === 0 && (
         <div className="mt-4 text-center text-gray-500">No products found.</div>
       )}

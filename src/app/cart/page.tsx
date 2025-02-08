@@ -21,7 +21,6 @@ export default function Cart() {
       </div>
 
       <div className="flex flex-col lg:flex-row justify-center gap-6 mt-10">
-        {/* Cart Items Section */}
         <div className="w-full lg:w-3/5 bg-white shadow-lg p-4 rounded-md">
           <div className="hidden md:flex justify-between bg-gray-100 p-4 text-sm font-bold rounded-md">
             <h1 className="w-1/5 text-center">Product</h1>
@@ -57,7 +56,6 @@ export default function Cart() {
           )}
         </div>
 
-        {/* Cart Totals Section */}
         <div className="w-full lg:w-2/5 bg-gray-100 p-6 shadow-lg rounded-md">
           <h1 className="text-center font-semibold text-2xl mb-4">Cart Totals</h1>
           <div className="flex justify-between border-b py-2">

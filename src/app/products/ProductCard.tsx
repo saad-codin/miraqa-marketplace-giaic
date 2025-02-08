@@ -19,7 +19,7 @@ interface Product {
 }
 
 interface ProductCardProps {
-  limit?: number; // Optional: Limits number of products displayed
+  limit?: number;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ limit }) => {
@@ -31,7 +31,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ limit }) => {
       try {
         const query = `*[_type == "product"]{ _id, title, price, "imageUrl": productImage.asset->url }`;
         const data = await sanity.fetch(query);
-        setProducts(limit ? data.slice(0, limit * 4) : data); // Limits to rows if limit is set
+        setProducts(limit ? data.slice(0, limit * 4) : data);
       } catch (error) {
         console.error("Error fetching products:", error);
       } finally {
@@ -48,10 +48,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ limit }) => {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      {/* Heading */}
       <h2 className="text-4xl font-bold text-center mb-[45px] mt-2">Browse Our Products</h2>
-
-      {/* Product Grid */}
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {products.map((product) => (
           <Link key={product._id} href={`/products`} passHref>

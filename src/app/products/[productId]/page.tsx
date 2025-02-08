@@ -52,7 +52,7 @@ const ProductPage = () => {
         }`;
 
         const data = await sanity.fetch(query);
-        console.log("Fetched Product:", data); // Debugging output
+        console.log("Fetched Product:", data);
         setProduct(data);
       } catch (error) {
         console.error("Error fetching product:", error);
@@ -80,7 +80,7 @@ const ProductPage = () => {
       title: product.title,
       price: product.price,
       imageUrl: product.imageUrl,
-      quantity, // ✅ Ensure selected quantity is passed
+      quantity,
     });
   
     toast({
@@ -98,7 +98,7 @@ const ProductPage = () => {
     <div className="p-6 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
       <div className="flex justify-center">
         <img
-          src={product.imageUrl || "https://via.placeholder.com/400"} // Fallback image
+          src={product.imageUrl || "https://via.placeholder.com/400"}
           alt={product.title}
           className="rounded-lg shadow-md w-full max-w-md object-cover"
         />

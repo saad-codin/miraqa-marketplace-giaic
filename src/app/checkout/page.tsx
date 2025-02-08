@@ -3,13 +3,11 @@
 import Image from "next/image";
 import { Circle } from 'lucide-react';
 import BillingDetailsForm from "../components/BillingDetailsForm";
-import { useCartStore } from "@/store/cartStore"; // Assuming this is your cart store
+import { useCartStore } from "@/store/cartStore";
 
 export default function Checkout() {
-  // Accessing the cart state from the store
   const { cart } = useCartStore(); 
 
-  // Calculate the total subtotal
   const subtotal = cart.reduce((total, item) => total + item.price * item.quantity, 0);
 
   return (
@@ -25,8 +23,6 @@ export default function Checkout() {
 
         <div className="w-full lg:w-1/2 bg-gray-100 p-6 shadow-lg rounded-md">
           <h1 className="text-center font-semibold text-2xl mb-4">Cart Totals</h1>
-
-          {/* Render cart items dynamically */}
           {cart.length > 0 ? (
             <>
               {cart.map((item) => (
@@ -35,14 +31,10 @@ export default function Checkout() {
                   <p className="text-gray-600">$ {item.price * item.quantity}</p>
                 </div>
               ))}
-
-              {/* Subtotal */}
               <div className="flex justify-between border-b py-2 mt-2">
                 <p className="font-semibold">Subtotal</p>
                 <p className="text-gray-600">$ {subtotal}</p>
               </div>
-
-              {/* Total */}
               <div className="flex justify-between border-b py-2 mt-2">
                 <p className="font-semibold">Total</p>
                 <p className="text-xl text-yellow-600 font-semibold">$ {subtotal}</p>
@@ -51,8 +43,6 @@ export default function Checkout() {
           ) : (
             <p className="text-gray-600">Your cart is empty.</p>
           )}
-
-          {/* Payment methods */}
           <div className="mt-6">
             <div className="flex items-center space-x-3">
               <Circle size={14} />
@@ -75,4 +65,3 @@ export default function Checkout() {
     </div>
   );
 }
-  

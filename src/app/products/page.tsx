@@ -67,7 +67,6 @@ export default function ProductCards() {
 
   return (
     <div className="container mx-auto px-4 py-6">
-      {/* Shop Banner */}
       <div className="w-full">
         <Image
           src="/Group 78 (4).png"
@@ -79,9 +78,6 @@ export default function ProductCards() {
         />
       </div>
 
-   
-
-      {/* Product Grid */}
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 mt-10">
         {loading
           ? Array.from({ length: 8 }).map((_, i) => (
@@ -95,7 +91,6 @@ export default function ProductCards() {
                 key={product._id}
                 className="bg-white p-4 shadow-md rounded-lg transition-transform transform hover:scale-105 cursor-pointer flex flex-col justify-between min-h-[400px]"
               >
-                {/* Product Image */}
                 <Link href={`/products/${product._id}`} className="block">
                   <div className="w-full h-[220px] relative">
                     <Image
@@ -108,14 +103,12 @@ export default function ProductCards() {
                   </div>
                 </Link>
 
-                {/* Product Info */}
                 <div className="flex-grow">
                   <h3 className="text-lg font-semibold mt-4">{product.title}</h3>
                   <p className="text-yellow-600 text-xl font-bold mt-2">
                     ${product.price.toLocaleString()}
                   </p>
 
-                  {/* Tags */}
                   {product.tags && product.tags.length > 0 && (
                     <div className="flex flex-wrap gap-2 mt-2">
                       {product.tags.map((tag, index) => (
@@ -130,7 +123,6 @@ export default function ProductCards() {
                   )}
                 </div>
 
-                {/* Add to Cart Button */}
                 <div className="mt-auto flex justify-center">
                   <button
                     onClick={() => handleAddToCart(product)}
@@ -143,7 +135,6 @@ export default function ProductCards() {
               </div>
             ))}
       </div> 
-      
     </div>
   );
 }
