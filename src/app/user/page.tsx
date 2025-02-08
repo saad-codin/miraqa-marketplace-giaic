@@ -1,47 +1,47 @@
-"use client";
+// "use client";
 
-import { useRouter } from "next/navigation";
-import { ArrowRightIcon, UserPlusIcon } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
+// import { useRouter } from "next/navigation";
+// import { ArrowRightIcon, UserPlusIcon } from "lucide-react";
+// import { Button } from "@/components/ui/button";
+// import { Card, CardContent, CardHeader } from "@/components/ui/card";
 
-export default function UserLogin() {
-  const router = useRouter();
+// export default function UserLogin() {
+//   const router = useRouter();
 
-  const handleSignIn = () => {
-    router.push("/signin");
-  };
+//   const handleSignIn = () => {
+//     router.push("/signin");
+//   };
 
-  const handleSignUp = () => {
-    router.push("/signup");
-  };
+//   const handleSignUp = () => {
+//     router.push("/signup");
+//   };
 
-  return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <Card className="max-w-sm w-full p-8">
-        <CardHeader className="text-center mb-6">
-          <h2 className="text-3xl font-semibold text-gray-900">Welcome</h2>
-          <p className="text-gray-600">Please choose an option to continue.</p>
-        </CardHeader>
+//   return (
+//     <div className="flex items-center justify-center min-h-screen bg-gray-100">
+//       <Card className="max-w-sm w-full p-8">
+//         <CardHeader className="text-center mb-6">
+//           <h2 className="text-3xl font-semibold text-gray-900">Welcome</h2>
+//           <p className="text-gray-600">Please choose an option to continue.</p>
+//         </CardHeader>
 
-        <CardContent className="space-y-4">
-          <Button
-            variant="default"
-            className="w-full flex items-center justify-between bg-blue-600 text-white hover:bg-blue-700"
-            onClick={handleSignIn}>
-            Sign In
-            <ArrowRightIcon className="ml-2" />
-          </Button>
+//         <CardContent className="space-y-4">
+//           <Button
+//             variant="default"
+//             className="w-full flex items-center justify-between bg-blue-600 text-white hover:bg-blue-700"
+//             onClick={handleSignIn}>
+//             Sign In
+//             <ArrowRightIcon className="ml-2" />
+//           </Button>
 
-          <Button
-            variant="default"
-            className="w-full flex items-center justify-between bg-green-600 text-white hover:bg-green-700"
-            onClick={handleSignUp}>
-            Sign Up
-            <UserPlusIcon className="ml-2" />
-          </Button>
-        </CardContent>
-      </Card>
-    </div>
-  );
-}
+//           <Button
+//             variant="default"
+//             className="w-full flex items-center justify-between bg-green-600 text-white hover:bg-green-700"
+//             onClick={handleSignUp}>
+//             Sign Up
+//             <UserPlusIcon className="ml-2" />
+//           </Button>
+//         </CardContent>
+//       </Card>
+//     </div>
+//   );
+// }
