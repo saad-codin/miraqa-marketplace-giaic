@@ -23,19 +23,21 @@ const features = [
   },
 ];
 
-const Feature= () => {
+const Feature = () => {
   return (
-    <div className="bg-[#FAF5EE] py-8  ">
-      <div className="max-w-6xl mx-auto flex justify-between items-center space-x-6 px-6">
-        {features.map((feature, index) => (
-          <div key={index} className="flex items-center space-x-4">
-            {feature.icon}
-            <div>
-              <h3 className="text-lg font-bold text-black">{feature.title}</h3>
-              <p className="text-gray-500 text-sm">{feature.description}</p>
+    <div className="bg-[#FAF5EE] py-8">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+          {features.map((feature, index) => (
+            <div key={index} className="flex items-center space-x-4">
+              {feature.icon}
+              <div>
+                <h3 className="text-lg font-bold text-black">{feature.title}</h3>
+                <p className="text-gray-500 text-sm">{feature.description}</p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -4,7 +4,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto py-12">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="mb-8 lg:mb-0">
-            <h1 className="font-bold text-2xl leading-[24px]">Furniro.</h1>
+            <h1 className="font-bold text-2xl leading-[24px]">Miraqa.</h1>
             <p className="mt-8 text-[16px] text-[#9F9F9F] font-normal leading-[24px]">
               400 University Drive Suite 200 Coral Gables,
               <br /> FL 33134 USA
@@ -42,7 +42,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-[#D9D9D9] mt-8 pt-4 text-center text-[14px] text-[#9F9F9F]">
-          <p>2025 Furniro. All rights reserved</p>
+          <p>2025 Miraqa. All rights reserved</p>
         </div>
       </div>
     </div>

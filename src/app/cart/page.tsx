@@ -1,80 +1,86 @@
-import Image from "next/image"
-import Link from "next/link" 
-import Feature from "../components/Feature"
-export default function Cart () { 
+"use client";
 
-    return ( 
-        <div>
+import Image from "next/image";
+import Link from "next/link";
+import Feature from "../components/Feature";
+import { useCartStore } from "@/store/cartStore";
+import { Button } from "@/components/ui/button";
+import { Trash2 } from "lucide-react";
 
-            <div>
-                <Image src="/Group 78 (5).png" alt="cart" width={1440} height={316}></Image>
-            </div>
-                      <div  className="w-[1440px] h-[525px]">
+export default function Cart() {
+  const { cart, removeFromCart, updateQuantity } = useCartStore();
 
-                      <div className="w-[1240px] h-[390px] mt-[100px] ml-[100px] flex">
-  {/* Content section */}
-  <div className="w-[817px] h-[215px] flex flex-col">
-    {/* Header row */}
-    <div className="w-[817px] h-[55px] flex bg-[#F9F1E7] p-4">
-      <h1 className="ml-[170px] text-[16px] font-bold">Product</h1>
-      <h1 className="ml-[100px] text-[16px] font-bold">Price</h1>
-      <h1 className="ml-[80px] text-[16px] font-bold">Quantity</h1>
-      <h1 className="ml-[55px] text-[16px] font-bold">Subtotal</h1>
-    </div>
+  const calculateTotal = () => {
+    return cart.reduce((total, item) => total + item.price * item.quantity, 0);
+  };
 
-    {/* Product row */}
-    <div className="flex ]">
-      <div className="mt-[60px]">
-        <Image src="/Group 146.png" alt="asgard sofa" height={105} width={108} />
+  return (
+    <div className="container mx-auto px-4 py-6">
+      <div className="w-full">
+        <Image src="/Group 78 (5).png" alt="cart" width={1440} height={316} className="w-full" />
       </div>
-      <div className="w-[610px] h-[25px] ml-[60px] mt-[100px] flex">
-        <p className="text-[16px] text-[#9F9F9F]">Asgaard sofa</p>
-        <p className="ml-[60px] text-[16px] text-[#9F9F9F]">Rs 250,000.00</p>
-        <div className="flex items-center justify-center border border-[#9F9F9F] h-[32px] w-[32px] rounded-[10px] ml-[60px]">
-          <p className="text-black text-[16px]">1</p>
-        </div>
-        <p className="ml-[60px] text-[16px] text-black">Rs 250,000.00</p>
-        <Image src="/ant-design_delete-filled.png" alt="trash" height={28} width={28} className="ml-[80px]" />
-      </div>
-    </div>
-  </div>
 
- 
-  <div className="w-[393px] h-[390px] border border-1px bg-[#F9F1E7] ml-[auto]"> 
-  <h1 className="text-center font-semibold text-3xl mt-[20px]">Cart Totals</h1>
-  <div className="mt-[60px]">
-      <div className="flex flex-col justify-between mt-[20px]"> {/* Ensuring 20px distance between the sections */}
-    {/* Subtotal Row */}
-    <div className="flex mt-[20px]"> 
-      <p className="ml-[70px] font-semibold">Subtotal</p>
-      <p className="ml-[100px] font-medium text-[#9F9F9F] text-[16px]">Rs 250,000.00</p>
-    </div>
-    
-    {/* Total Row */}
-    <div className="flex mt-[20px] gap-2"> 
-      <p className="ml-[70px] font-semibold">Total</p>
-      <p className="ml-[100px] text-xl text-[#B88E2F] font-semibold">Rs 250,000.00</p>
-    </div>
-  </div>
-  <div className="mt-[60px] ml-[90px]"> 
-    <Link href="/checkout">
-    <button type="submit" className="border border-black border-1px rounded-[15px] text-semibold text-xl w-[222px] h-[59px] ">Check Out</button>
-    </Link>
-  </div>
-</div>
-</div>
-
-
-</div>
-
-
-                      </div> 
-              <div >  
-                 <Feature />
+      <div className="flex flex-col lg:flex-row justify-center gap-6 mt-10">
+        {/* Cart Items Section */}
+        <div className="w-full lg:w-3/5 bg-white shadow-lg p-4 rounded-md">
+          <div className="hidden md:flex justify-between bg-gray-100 p-4 text-sm font-bold rounded-md">
+            <h1 className="w-1/5 text-center">Product</h1>
+            <h1 className="w-1/5 text-center">Price</h1>
+            <h1 className="w-1/5 text-center">Quantity</h1>
+            <h1 className="w-1/5 text-center">Subtotal</h1>
+            <h1 className="w-1/5 text-center">Remove</h1>
+          </div>
+          {cart.length > 0 ? (
+            cart.map((item) => (
+              <div key={item._id} className="flex flex-col md:flex-row items-center p-4 border-b gap-4 md:gap-0">
+                <Image src={item.imageUrl} alt={item.title} height={105} width={108} className="mb-4 md:mb-0" />
+                <div className="w-full md:w-1/5 text-center text-gray-600">{item.title}</div>
+                <div className="w-full md:w-1/5 text-center text-gray-600">$ {item.price.toLocaleString()}</div>
+                <div className="w-full md:w-1/5 flex justify-center items-center">
+                  <input
+                    type="number"
+                    value={item.quantity}
+                    onChange={(e) => updateQuantity(item._id, parseInt(e.target.value) || 1)}
+                    className="w-16 border text-center rounded-md p-1"
+                  />
+                </div>
+                <div className="w-full md:w-1/5 text-center text-black">$ {(item.price * item.quantity).toLocaleString()}</div>
+                <div className="w-full md:w-1/5 flex justify-center">
+                  <Button variant="outline" size="icon" onClick={() => removeFromCart(item._id)}>
+                    <Trash2 className="text-red-500" size={18} />
+                  </Button>
+                </div>
               </div>
-            
-
-
+            ))
+          ) : (
+            <p className="text-center text-gray-500 py-10">Your cart is empty. Add products to checkout.</p>
+          )}
         </div>
-    )
+
+        {/* Cart Totals Section */}
+        <div className="w-full lg:w-2/5 bg-gray-100 p-6 shadow-lg rounded-md">
+          <h1 className="text-center font-semibold text-2xl mb-4">Cart Totals</h1>
+          <div className="flex justify-between border-b py-2">
+            <p className="font-semibold">Subtotal</p>
+            <p className="text-gray-600">$ {calculateTotal().toLocaleString()}</p>
+          </div>
+          <div className="flex justify-between border-b py-2 mt-2">
+            <p className="font-semibold">Total</p>
+            <p className="text-xl text-yellow-600 font-semibold">$ {calculateTotal().toLocaleString()}</p>
+          </div>
+          <div className="text-center mt-6">
+            <Link href="/checkout">
+              <button className="bg-black text-white py-3 px-8 rounded-md text-lg hover:bg-gray-800 transition duration-300 w-full md:w-auto">
+                Check Out
+              </button>
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-10">
+        <Feature />
+      </div>
+    </div>
+  );
 }
