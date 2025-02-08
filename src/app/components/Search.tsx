@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { Search as SearchIcon } from "lucide-react";
-import Image from "next/image"; // Import Image from next/image
+import Image from "next/image"; 
 
 interface Product {
   _id: string;
@@ -55,12 +55,12 @@ const Search: React.FC<SearchProps> = ({ products }) => {
                 key={product._id}
                 className="bg-white shadow-md rounded-lg p-4 hover:shadow-lg transition-shadow duration-300"
               >
-                {/* Replaced <img> with <Image> */}
+            
                 <Image
                   src={product.imageUrl}
                   alt={product.title}
-                  width={500} // Set a width for the image
-                  height={500} // Set a height for the image
+                  width={500}
+                  height={500} 
                   className="w-full h-48 object-cover rounded-md"
                 />
                 <h2 className="text-lg font-semibold">{product.title}</h2>
