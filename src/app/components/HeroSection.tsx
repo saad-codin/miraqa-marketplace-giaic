@@ -4,7 +4,7 @@ export default function HeroSection() {
   return (
     <div className="relative w-full h-[716px] flex items-center justify-center">
       <Image 
-        src="/hero1.png" 
+        src="/backimg.png" 
         alt="Hero" 
         fill 
         style={{ objectFit: 'cover' }}  
